@@ -19,3 +19,25 @@
 Постарайтесь не использовать ф-ции min() и sort() и другие ф-ции!
 Подход должен быть максимально алгоритмическим.
 """
+
+
+def find_min_1(num_list):  # Итог - O(N**2)
+
+    for i in range(len(num_list)):  # O(N)
+        count_min = 0  # O(1)
+        for j in range(len(num_list)):  # O(N)
+            if num_list[i] <= num_list[j]:  # O(1)
+                count_min += 1  # O(1)
+        if count_min == len(num_list):  # O(1)
+            return num_list[i]  # O(1)
+
+
+def find_min_2(num_list):  # Итог - O(N)
+    min_num = num_list[0]  # O(1)
+    for i in range(len(num_list)):  # O(N)
+        if num_list[i] < min_num:  # O(1)
+            min_num = num_list[i]  # O(1)
+    return min_num  # O(1)
+
+
+print(find_min_1([9, 6, 4, 3, 6, 7, 2, 10]))
